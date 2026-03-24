@@ -290,13 +290,6 @@ const Map = forwardRef<MapRef, MapProps>(function Map(
       attributionControl: {
         compact: true,
       },
-      transformStyle: (_previousStyle, nextStyle) => {
-        if (typeof nextStyle === "string") return nextStyle;
-        return {
-          ...nextStyle,
-          projection: nextStyle.projection ?? { type: "mercator" },
-        };
-      },
       center: persistedViewport?.center ?? viewport?.center,
       zoom: persistedViewport?.zoom ?? viewport?.zoom ?? 5,
       bearing: persistedViewport?.bearing ?? viewport?.bearing ?? 0,

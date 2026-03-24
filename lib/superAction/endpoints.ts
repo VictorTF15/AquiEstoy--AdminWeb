@@ -2,7 +2,7 @@ import type { RequestPayloadMap } from "./payloads";
 
 export type RequestType = "json" | "formData" | "urlencoded" | "raw";
 
-type EndpointDef = {
+export type EndpointDef = {
   path: string;
   method: "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
   responseType: string;

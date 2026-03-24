@@ -241,3 +241,32 @@ export const crearCasoAction = async (payload: CrearCasoPayload): Promise<Caso> 
     throw new Error(error.message || 'Error de conexión al intentar crear el caso.');
   }
 };
+
+export type CasoListResponse = CasosResponse;
+export type CasoWriteResponse = Caso;
+
+export type CreateCaso = CrearCasoPayload;
+export type ReplaceCaso = CrearCasoPayload;
+export type UpdateCaso = Partial<CrearCasoPayload>;
+
+export interface CasoCategoriaRelation {
+  id: number;
+  id_caso: number;
+  id_categoria: number;
+  fecha_creacion?: string;
+}
+
+export interface CasoCategoriaRelationListResponse {
+  count: number;
+  next: string | null;
+  previous: string | null;
+  results: CasoCategoriaRelation[];
+}
+
+export type CreateCasoCategoriaRelation = Omit<CasoCategoriaRelation, 'id' | 'fecha_creacion'>;
+export type ReplaceCasoCategoriaRelation = CreateCasoCategoriaRelation;
+export type UpdateCasoCategoriaRelation = Partial<CreateCasoCategoriaRelation>;
+
+export interface CasoStats {
+  [key: string]: number;
+}

@@ -45,3 +45,14 @@ export const getCategoriasAction = async (): Promise<CategoriasResponse> => {
     throw error;
   }
 };
+
+export type CategoriaListResponse = CategoriasResponse;
+
+export interface CreateCategoria {
+  nombre: string;
+  descripcion: string;
+  icono?: string | null;
+  es_activo?: boolean;
+}
+
+export type UpdateCategoria = Partial<CreateCategoria>;

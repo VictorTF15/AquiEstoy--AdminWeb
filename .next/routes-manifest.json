@@ -1,0 +1,151 @@
+{
+  "version": 3,
+  "pages404": true,
+  "appType": "app",
+  "caseSensitive": false,
+  "basePath": "",
+  "redirects": [
+    {
+      "source": "/:path+/",
+      "destination": "/:path+",
+      "internal": true,
+      "priority": true,
+      "statusCode": 308,
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
+    }
+  ],
+  "headers": [],
+  "rewrites": {
+    "beforeFiles": [],
+    "afterFiles": [],
+    "fallback": []
+  },
+  "dynamicRoutes": [
+    {
+      "page": "/caso/[id]",
+      "regex": "^/caso/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/caso/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/mis-donaciones/[id]",
+      "regex": "^/mis\\-donaciones/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/mis\\-donaciones/(?<nxtPid>[^/]+?)(?:/)?$"
+    }
+  ],
+  "staticRoutes": [
+    {
+      "page": "/",
+      "regex": "^/(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/(?:/)?$"
+    },
+    {
+      "page": "/_global-error",
+      "regex": "^/_global\\-error(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_global\\-error(?:/)?$"
+    },
+    {
+      "page": "/_not-found",
+      "regex": "^/_not\\-found(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_not\\-found(?:/)?$"
+    },
+    {
+      "page": "/casos",
+      "regex": "^/casos(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/casos(?:/)?$"
+    },
+    {
+      "page": "/categorias",
+      "regex": "^/categorias(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/categorias(?:/)?$"
+    },
+    {
+      "page": "/crear-caso",
+      "regex": "^/crear\\-caso(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/crear\\-caso(?:/)?$"
+    },
+    {
+      "page": "/donaciones",
+      "regex": "^/donaciones(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/donaciones(?:/)?$"
+    },
+    {
+      "page": "/home",
+      "regex": "^/home(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/home(?:/)?$"
+    },
+    {
+      "page": "/login",
+      "regex": "^/login(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/login(?:/)?$"
+    },
+    {
+      "page": "/map",
+      "regex": "^/map(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/map(?:/)?$"
+    },
+    {
+      "page": "/mensajes",
+      "regex": "^/mensajes(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/mensajes(?:/)?$"
+    },
+    {
+      "page": "/mensajes/perfil",
+      "regex": "^/mensajes/perfil(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/mensajes/perfil(?:/)?$"
+    },
+    {
+      "page": "/mis-donaciones",
+      "regex": "^/mis\\-donaciones(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/mis\\-donaciones(?:/)?$"
+    },
+    {
+      "page": "/mis-donaciones/registro",
+      "regex": "^/mis\\-donaciones/registro(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/mis\\-donaciones/registro(?:/)?$"
+    },
+    {
+      "page": "/usuarios",
+      "regex": "^/usuarios(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/usuarios(?:/)?$"
+    }
+  ],
+  "dataRoutes": [],
+  "rsc": {
+    "header": "rsc",
+    "varyHeader": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+    "prefetchHeader": "next-router-prefetch",
+    "didPostponeHeader": "x-nextjs-postponed",
+    "contentTypeHeader": "text/x-component",
+    "suffix": ".rsc",
+    "prefetchSegmentHeader": "next-router-segment-prefetch",
+    "prefetchSegmentSuffix": ".segment.rsc",
+    "prefetchSegmentDirSuffix": ".segments",
+    "clientParamParsing": false,
+    "dynamicRSCPrerender": false
+  },
+  "rewriteHeaders": {
+    "pathHeader": "x-nextjs-rewritten-path",
+    "queryHeader": "x-nextjs-rewritten-query"
+  }
+}

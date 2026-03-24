@@ -1,15 +1,12 @@
-type LegacyPerfil = {
-  id: number;
-  [key: string]: unknown;
-};
+import type { Usuario } from '@/types/usuarios';
 
 /**
  * Mock hook - usePerfil
  * For legacy pages
  */
 export function usePerfil(): {
-  perfil: LegacyPerfil | null;
-  data: LegacyPerfil | null;
+  perfil: Usuario | null;
+  data: Usuario | null;
   isLoading: boolean;
   error: string | null;
 } {

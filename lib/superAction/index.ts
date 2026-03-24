@@ -1,5 +1,5 @@
 import { apiFetch } from "../api_root";
-import { ENDPOINTS, type EndpointName } from "./endpoints";
+import { ENDPOINTS, type EndpointDef, type EndpointName } from "./endpoints";
 import type { RequestPayloadMap } from "./payloads";
 import type { ResponseTypeMap } from "./responseTypes";
 
@@ -114,7 +114,7 @@ class SuperAction {
     async get<T extends EndpointName>(
         options: GetRequestOptions<T>
     ): Promise<SuperActionResponse<ResponseTypeMap[typeof ENDPOINTS[T]["responseType"]]>> {
-        const endpoint = ENDPOINTS[options.url];
+        const endpoint: EndpointDef = ENDPOINTS[options.url] as EndpointDef;
 
         if (endpoint.method !== "GET") {
             throw new Error(`Endpoint "${options.url}" no es un GET request`);
@@ -138,7 +138,7 @@ class SuperAction {
     async post<T extends EndpointName>(
         options: MutationRequestOptions<T>
     ): Promise<SuperActionResponse<ResponseTypeMap[typeof ENDPOINTS[T]["responseType"]]>> {
-        const endpoint = ENDPOINTS[options.url];
+        const endpoint: EndpointDef = ENDPOINTS[options.url] as EndpointDef;
 
         if (endpoint.method !== "POST") {
             throw new Error(`Endpoint "${options.url}" no es un POST request`);
@@ -203,7 +203,7 @@ class SuperAction {
     async patch<T extends EndpointName>(
         options: MutationRequestOptions<T>
     ): Promise<SuperActionResponse<ResponseTypeMap[typeof ENDPOINTS[T]["responseType"]]>> {
-        const endpoint = ENDPOINTS[options.url];
+        const endpoint: EndpointDef = ENDPOINTS[options.url] as EndpointDef;
 
         if (endpoint.method !== "PATCH") {
             throw new Error(`Endpoint "${options.url}" no es un PATCH request`);
@@ -263,7 +263,7 @@ class SuperAction {
     async put<T extends EndpointName>(
         options: MutationRequestOptions<T>
     ): Promise<SuperActionResponse<ResponseTypeMap[typeof ENDPOINTS[T]["responseType"]]>> {
-        const endpoint = ENDPOINTS[options.url];
+        const endpoint: EndpointDef = ENDPOINTS[options.url] as EndpointDef;
 
         if (endpoint.method !== "PUT") {
             throw new Error(`Endpoint "${options.url}" no es un PUT request`);
@@ -323,7 +323,7 @@ class SuperAction {
     async delete<T extends EndpointName>(
         options: GetRequestOptions<T>
     ): Promise<SuperActionResponse<ResponseTypeMap[typeof ENDPOINTS[T]["responseType"]]>> {
-        const endpoint = ENDPOINTS[options.url];
+        const endpoint: EndpointDef = ENDPOINTS[options.url] as EndpointDef;
 
         if (endpoint.method !== "DELETE") {
             throw new Error(`Endpoint "${options.url}" no es un DELETE request`);

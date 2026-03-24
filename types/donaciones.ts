@@ -5,7 +5,7 @@ export interface DonacionPayload {
   fecha_compromiso: string;
   fecha_donacion: string;
   mensaje_donador: string;
-  id_tipo_donacion: number | null;
+  id_tipo_donacion?: number | null;
   cantidad_donacion: string;
   descripcion_donacion: string;
   id_categoria: number;
@@ -164,3 +164,16 @@ export const getDonacionByIdAction = async (id: number | string): Promise<MiDona
     throw error;
   }
 };
+
+export type CreateDonacion = DonacionPayload;
+export type ReplaceDonacion = DonacionPayload;
+export type UpdateDonacion = Partial<DonacionPayload>;
+
+export interface DonacionListResponse {
+  count: number;
+  next: string | null;
+  previous: string | null;
+  results: Donacion[];
+}
+
+export type MisDonacionesResponse = DonacionListResponse;

@@ -38,6 +38,7 @@ export default function MensajesPage() {
       await enviarMensaje({
         contenido: mensajeTexto.trim(),
         es_leido: true,
+            id_conversacion: conversacionActiva.id,
         id_emisor: perfil.id,
         id_tipo: 6, // 6 es Consulta basado en el JSON de ejemplo
         fecha_leido: new Date().toISOString(),

@@ -138,7 +138,7 @@ export async function apiFetch<T = unknown>(
         clearSession();
       }
 
-      if (IS_DEV) {
+      if (IS_DEV && !(response.status === 401 && !token)) {
         const safeBody =
           typeof parsedBody === "string"
             ? parsedBody.slice(0, 300)

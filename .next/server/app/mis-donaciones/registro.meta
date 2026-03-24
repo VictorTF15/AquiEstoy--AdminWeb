@@ -1,0 +1,16 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/mis-donaciones/layout,_N_T_/mis-donaciones/registro/layout,_N_T_/mis-donaciones/registro/page,_N_T_/mis-donaciones/registro"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/mis-donaciones/registro/__PAGE__",
+    "/mis-donaciones/registro",
+    "/mis-donaciones",
+    "/_index",
+    "/_head"
+  ]
+}

@@ -7,8 +7,17 @@ import type { ConversacionBackend } from "@/types/conversaciones";
 export function useConversaciones(): {
   conversaciones: ConversacionBackend[];
   data: ConversacionBackend[];
+  obtenerOCrearChatParaCaso: (idCaso: number, idUsuario1: number, idUsuario2: number) => Promise<ConversacionBackend | null>;
   isLoading: boolean;
   error: string | null;
 } {
-  return { conversaciones: [], data: [], isLoading: false, error: null };
+  const obtenerOCrearChatParaCaso = async (_idCaso: number, _idUsuario1: number, _idUsuario2: number) => null;
+
+  return {
+    conversaciones: [],
+    data: [],
+    obtenerOCrearChatParaCaso,
+    isLoading: false,
+    error: null,
+  };
 }

@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { getDashboardMetrics } from "@/lib/adminApi";
 import {
@@ -130,9 +131,19 @@ function ProgressMetric({
 }
 
 export default function HomePage() {
+  const [authChecked, setAuthChecked] = useState(false);
+  const [hasToken, setHasToken] = useState(false);
+
+  useEffect(() => {
+    const token = typeof window !== "undefined" ? localStorage.getItem("access") : null;
+    setHasToken(Boolean(token));
+    setAuthChecked(true);
+  }, []);
+
   const metricsQuery = useQuery({
     queryKey: ["dashboard", "metrics"],
     queryFn: getDashboardMetrics,
+    enabled: authChecked && hasToken,
   });
 
   const metrics = metricsQuery.data || {

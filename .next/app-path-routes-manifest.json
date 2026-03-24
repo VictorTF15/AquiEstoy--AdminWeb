@@ -1,0 +1,19 @@
+{
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/caso/[id]/page": "/caso/[id]",
+  "/casos/page": "/casos",
+  "/categorias/page": "/categorias",
+  "/crear-caso/page": "/crear-caso",
+  "/donaciones/page": "/donaciones",
+  "/home/page": "/home",
+  "/login/page": "/login",
+  "/map/page": "/map",
+  "/mensajes/page": "/mensajes",
+  "/mensajes/perfil/page": "/mensajes/perfil",
+  "/mis-donaciones/[id]/page": "/mis-donaciones/[id]",
+  "/mis-donaciones/page": "/mis-donaciones",
+  "/mis-donaciones/registro/page": "/mis-donaciones/registro",
+  "/page": "/",
+  "/usuarios/page": "/usuarios"
+}
