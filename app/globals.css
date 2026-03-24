@@ -1,0 +1,83 @@
+
+@import "tailwindcss";
+
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-black tracking-tight;
+  }
+
+  h1 { @apply text-3xl md:text-4xl; }
+  h2 { @apply text-2xl md:text-3xl; }
+  h3 { @apply text-xl md:text-2xl; }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="number"],
+  input[type="date"],
+  input[type="tel"],
+  textarea,
+  select {
+    @apply transition-all duration-200;
+    @apply focus:outline-none focus:ring-2 focus:ring-blue-500/35;
+  }
+
+  a {
+    @apply transition-colors duration-200;
+  }
+}
+
+:root {
+  color-scheme: light;
+
+  --color-primary: #3b82f6;
+  --color-secondary: #2563eb;
+  --color-accent: #0ea5e9;
+  --color-success: #10b981;
+  --color-error: #ef4444;
+  --color-warning: #3b82f6;
+
+  --color-slate-50: #f8fafc;
+  --color-slate-900: #0f172a;
+
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 0% 0%, rgba(59, 130, 246, 0.16), transparent 45%),
+    radial-gradient(circle at 100% 100%, rgba(14, 165, 233, 0.14), transparent 45%),
+    linear-gradient(135deg, #eff6ff 0%, #f8fbff 48%, #eef2ff 100%);
+  color: #0f172a;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@layer utilities {
+  .panel-blue-card {
+    @apply rounded-2xl border border-blue-100/70 bg-white/90 shadow-lg shadow-blue-100/40 backdrop-blur;
+  }
+
+  .panel-blue-title {
+    @apply bg-gradient-to-r from-blue-700 via-blue-600 to-sky-500 bg-clip-text text-transparent;
+  }
+
+  .panel-blue-btn {
+    @apply rounded-xl bg-gradient-to-r from-blue-600 to-sky-500 px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-blue-500/30 transition-all duration-200 hover:shadow-xl hover:shadow-blue-500/40 active:scale-[0.99];
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}

@@ -1,0 +1,19 @@
+{
+  "/_global-error/page": "app/_global-error/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/caso/[id]/page": "app/caso/[id]/page.js",
+  "/casos/page": "app/casos/page.js",
+  "/categorias/page": "app/categorias/page.js",
+  "/crear-caso/page": "app/crear-caso/page.js",
+  "/donaciones/page": "app/donaciones/page.js",
+  "/home/page": "app/home/page.js",
+  "/login/page": "app/login/page.js",
+  "/map/page": "app/map/page.js",
+  "/mensajes/page": "app/mensajes/page.js",
+  "/mensajes/perfil/page": "app/mensajes/perfil/page.js",
+  "/mis-donaciones/[id]/page": "app/mis-donaciones/[id]/page.js",
+  "/mis-donaciones/page": "app/mis-donaciones/page.js",
+  "/mis-donaciones/registro/page": "app/mis-donaciones/registro/page.js",
+  "/page": "app/page.js",
+  "/usuarios/page": "app/usuarios/page.js"
+}

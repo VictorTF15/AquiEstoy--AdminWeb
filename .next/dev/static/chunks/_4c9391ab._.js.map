@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///Users/victortoxquiflorws/Desktop/AquiEstoy--AdminWeb/components/GuestGuard.tsx"],"sourcesContent":["'use client';\nimport { useEffect, useState } from 'react';\nimport { useRouter } from 'next/navigation';\n\nexport default function GuestGuard({ children }: { children: React.ReactNode }) {\n  const router = useRouter();\n  const [checking, setChecking] = useState(true);\n\n  useEffect(() => {\n    const token = localStorage.getItem('access');\n    if (token) {\n      router.replace('/home');\n    } else {\n      setChecking(false);\n    }\n  }, [router]);\n\n  if (checking) return null;\n\n  return <>{children}</>;\n}\n"],"names":[],"mappings":";;;;;AACA;AACA;;;AAFA;;;AAIe,SAAS,WAAW,EAAE,QAAQ,EAAiC;;IAC5E,MAAM,SAAS,IAAA,kJAAS;IACxB,MAAM,CAAC,UAAU,YAAY,GAAG,IAAA,yKAAQ,EAAC;IAEzC,IAAA,0KAAS;gCAAC;YACR,MAAM,QAAQ,aAAa,OAAO,CAAC;YACnC,IAAI,OAAO;gBACT,OAAO,OAAO,CAAC;YACjB,OAAO;gBACL,YAAY;YACd;QACF;+BAAG;QAAC;KAAO;IAEX,IAAI,UAAU,OAAO;IAErB,qBAAO;kBAAG;;AACZ;GAhBwB;;QACP,kJAAS;;;KADF"}},
+    {"offset": {"line": 51, "column": 0}, "map": {"version":3,"sources":["file:///Users/victortoxquiflorws/Desktop/AquiEstoy--AdminWeb/node_modules/next/navigation.js"],"sourcesContent":["module.exports = require('./dist/client/components/navigation')\n"],"names":[],"mappings":"AAAA,OAAO,OAAO","ignoreList":[0]}}]
+}
