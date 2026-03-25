@@ -131,6 +131,12 @@ export async function getCases(query?: Record<string, unknown>) {
   return extractList<Caso>(payload);
 }
 
+export async function getCaseById(id: number | string) {
+  return requestOrThrow<Caso>(`/api/api/casos/${id}/`, {
+    method: "GET",
+  });
+}
+
 export async function createCase(input: CreateCaso) {
   return requestOrThrow<Caso>("/api/api/casos/", {
     method: "POST",

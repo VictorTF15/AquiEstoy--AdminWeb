@@ -5,14 +5,17 @@ import { useCasosMapa } from '@/hooks/casos/useCasosMapa';
 import { CasoMapa } from '../../types/casos';
 import { Map, MapMarker, MarkerContent, MarkerPopup, MapControls } from '@/components/ui/map';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 export default function MapPage() {
+    const router = useRouter();
   const { casosMapa, isLoading, error } = useCasosMapa();
   const [activeId, setActiveId] = useState<number | null>(null);
     const [isPanelOpen, setIsPanelOpen] = useState(false);
 
   // Usamos el centro de México por defecto
   const defaultCenter = [-99.1332, 19.4326];
+    const selectedCase = casosMapa.find((caso) => caso.id === activeId) || null;
 
   return (
     <div className="relative w-full h-[calc(100vh-5rem)] bg-[#F5F5F7]">
@@ -138,6 +141,40 @@ export default function MapPage() {
              </div>
           </div>
       )}
+
+            {selectedCase && !isLoading && !error && (
+                <div className="absolute bottom-6 left-1/2 z-30 w-[92%] max-w-xl -translate-x-1/2 rounded-3xl border border-white/50 bg-white/95 p-5 shadow-2xl backdrop-blur-xl">
+                    <div className="mb-2 flex items-center justify-between gap-3">
+                        <h3 className="line-clamp-1 text-base font-black text-[#0A1930]">{selectedCase.titulo}</h3>
+                        <button
+                            type="button"
+                            onClick={() => setActiveId(null)}
+                            className="rounded-lg border border-gray-200 px-2.5 py-1 text-xs font-bold text-gray-600 hover:bg-gray-50"
+                        >
+                            Cerrar
+                        </button>
+                    </div>
+
+                    <div className="mb-4 flex items-center gap-2">
+                        <span className="rounded-full border border-blue-100 bg-blue-50 px-2 py-1 text-[10px] font-extrabold uppercase tracking-wider text-[#306FDB]">
+                            Prioridad {selectedCase.prioridad}
+                        </span>
+                        <span className="rounded-full border border-gray-200 bg-gray-50 px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-gray-500">
+                            Caso #{selectedCase.id}
+                        </span>
+                    </div>
+
+                    <div className="flex justify-end gap-2">
+                        <button
+                            type="button"
+                            onClick={() => router.push(`/caso/${selectedCase.id}`)}
+                            className="rounded-2xl bg-[#0A1930] px-4 py-2 text-sm font-bold text-white hover:bg-[#306FDB]"
+                        >
+                            Previsualizar caso
+                        </button>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }

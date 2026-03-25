@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { useRouter } from "next/navigation";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import {
   createCase,
@@ -39,10 +40,12 @@ const initialForm: CasoFormState = {
 };
 
 export default function CasosPage() {
+  const router = useRouter();
   const queryClient = useQueryClient();
   const { showError, showSuccess } = useAlerts();
 
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [previewCase, setPreviewCase] = useState<Caso | null>(null);
   const [selected, setSelected] = useState<Caso | null>(null);
   const [form, setForm] = useState<CasoFormState>(initialForm);
 
@@ -204,6 +207,7 @@ export default function CasosPage() {
           return (
             <article
               key={caso.id}
+              onClick={() => setPreviewCase(caso)}
               className="group relative overflow-hidden rounded-2xl bg-white p-6 shadow-md transition-all duration-200 hover:shadow-lg hover:shadow-slate-300/20"
             >
               {/* Top Accent Line */}
@@ -253,14 +257,20 @@ export default function CasosPage() {
               <div className="mt-5 flex gap-2">
                 <button
                   type="button"
-                  onClick={() => openEdit(caso)}
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    openEdit(caso);
+                  }}
                   className="flex-1 rounded-lg bg-gradient-to-r from-blue-50 to-cyan-50 px-3 py-2 text-xs font-bold text-blue-700 transition-all duration-200 hover:from-blue-100 hover:to-cyan-100 hover:shadow-md"
                 >
                   Editar
                 </button>
                 <button
                   type="button"
-                  onClick={() => onDelete(caso.id)}
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    onDelete(caso.id);
+                  }}
                   className="flex-1 rounded-lg bg-gradient-to-r from-indigo-50 to-blue-50 px-3 py-2 text-xs font-bold text-indigo-700 transition-all duration-200 hover:from-indigo-100 hover:to-blue-100 hover:shadow-md"
                 >
                   Eliminar
@@ -270,6 +280,50 @@ export default function CasosPage() {
           );
         })}
       </div>
+
+      {previewCase && (
+        <div className="fixed inset-0 z-50 grid place-items-center bg-slate-950/40 p-4 backdrop-blur-sm animate-in fade-in">
+          <div className="w-full max-w-xl rounded-2xl bg-white p-6 shadow-2xl animate-in slide-in-from-bottom-4">
+            <div className="mb-4 flex items-start justify-between gap-3">
+              <h3 className="line-clamp-2 text-xl font-black text-slate-900">{previewCase.titulo}</h3>
+              <button
+                type="button"
+                onClick={() => setPreviewCase(null)}
+                className="rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-bold text-slate-600 hover:bg-slate-50"
+              >
+                Cerrar
+              </button>
+            </div>
+
+            <p className="mb-4 line-clamp-5 text-sm text-slate-600">{previewCase.descripcion}</p>
+
+            <div className="mb-5 flex flex-wrap gap-2 text-xs text-slate-500">
+              <span className="rounded-lg bg-slate-100 px-2.5 py-1 font-medium">{previewCase.colonia}</span>
+              <span className="rounded-lg bg-slate-100 px-2.5 py-1 font-medium">{previewCase.entidad}</span>
+              <span className="rounded-lg bg-slate-100 px-2.5 py-1 font-medium">
+                {normalizeCaseOpenState(previewCase) ? "Abierto" : "Cerrado"}
+              </span>
+            </div>
+
+            <div className="flex justify-end gap-2">
+              <button
+                type="button"
+                onClick={() => setPreviewCase(null)}
+                className="rounded-lg border border-slate-200 px-4 py-2 text-sm font-bold text-slate-700 hover:bg-slate-50"
+              >
+                Cancelar
+              </button>
+              <button
+                type="button"
+                onClick={() => router.push(`/caso/${previewCase.id}`)}
+                className="rounded-lg bg-gradient-to-r from-blue-600 to-cyan-600 px-4 py-2 text-sm font-bold text-white"
+              >
+                Ver detalle completo
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Modal */}
       {isModalOpen && (

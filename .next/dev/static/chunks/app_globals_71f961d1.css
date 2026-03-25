@@ -1124,6 +1124,13 @@
     overflow: hidden;
   }
 
+  .line-clamp-5 {
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    overflow: hidden;
+  }
+
   .block {
     display: block;
   }
@@ -1418,6 +1425,10 @@
 
   .w-\[40\%\] {
     width: 40%;
+  }
+
+  .w-\[92\%\] {
+    width: 92%;
   }
 
   .w-\[min\(92vw\,420px\)\] {

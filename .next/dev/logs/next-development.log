@@ -1,10 +1,5 @@
-[00:00:00.776] Server  LOG     ⚠ Console Ninja Turbopack support is a PRO feature, currently available to community users while in preview
-[00:00:01.194] Server  LOG     ✓ Ready in 716ms
-[00:00:09.378] Server  LOG     ○ Compiling / ...
-[00:00:12.527] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:18.961] Browser ERROR   [API 401] Las credenciales de autenticación no se proveyeron. {"body":"{\"detail\":\"Las credenciales de autenticación no se proveyeron.\"}","endpoint":"https://aqui-estoy-python-ewxoj80kf-victortoxfl-8778s-projects.vercel.app/api/api/usuarios/?page=2"}
-[00:00:20.001] Browser ERROR   [API 401] Las credenciales de autenticación no se proveyeron. {"body":"{\"detail\":\"Las credenciales de autenticación no se proveyeron.\"}","endpoint":"https://aqui-estoy-python-ewxoj80kf-victortoxfl-8778s-projects.vercel.app/api/api/casos/?page=2"}
-[00:01:58.800] Server  LOG     ✓ Compiled in 833ms
-[00:02:03.408] Server  LOG     ✓ Compiled in 305ms
-[00:07:19.886] Server  LOG     ○ Compiling /map ...
-[00:07:30.504] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:01.097] Server  LOG     ✓ Ready in 790ms
+[00:00:10.375] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:01:18.737] Server  LOG     ✓ Compiled in 235ms
+[00:01:29.823] Server  LOG     ✓ Compiled in 269ms
+[00:01:44.389] Server  LOG     ⚠ Console Ninja Turbopack support is a PRO feature, currently available to community users while in preview
